@@ -1,0 +1,20 @@
+{
+  "name": "roving-mars",
+  "version": "1.0.0",
+  "description": "A dashboard to look at mars",
+  "main": "index.js",
+  "repository": "git@github.com:candy02058912/rovering-mars.git",
+  "author": "Candy Tsai <candy02058912@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "immutable": "^4.0.0-rc.12",
+    "node-fetch": "^2.6.0"
+  }
+}
