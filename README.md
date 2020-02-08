@@ -13,3 +13,13 @@ yarn
 ```
 yarn start
 ```
+
+## Project Screenshots
+
+### Mobile version
+
+![mobile screenshot](mobile.png)
+
+### Destop version
+
+![desktop screenshot](desktop.png)
