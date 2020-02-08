@@ -1,4 +1,4 @@
-# Roving Mars
+# Rovering Mars
 
 ## Project Setup
 
