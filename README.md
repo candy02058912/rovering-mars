@@ -8,7 +8,15 @@
 yarn
 ```
 
-2. Start the development server
+2. Create `.env` file in project root folder
+
+API_KEY=DEMO_KEY can be used to test the project
+
+```
+API_KEY=DEMO_KEY
+```
+
+3. Start the development server
 
 ```
 yarn start
