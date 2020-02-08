@@ -79,6 +79,7 @@ app.get("/rover/:rover", async (req, res) => {
     }
     const photos = await Promise.all(photoReqs);
     console.log(photos);
+    res.send(Immutable.List(photos));
   } catch (err) {
     console.log("error", err);
   }

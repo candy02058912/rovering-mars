@@ -52,14 +52,14 @@ footer {
   padding: 1rem;
 }
 
-.slick-img {
+.rover-images {
   width: 100%;
-  object-fit: cover;
-  height: 15rem;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-.slick-dots {
-  bottom: 0;
+.rover-images img {
+  height: 300px;
 }
 
 section .bgMask {
@@ -132,10 +132,6 @@ section .info {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
-  }
-
-  .slick-img {
-    height: 30rem;
   }
 
   section .bgMask {

@@ -21,13 +21,6 @@ const updateStore = (store, newState) => {
 
 const render = async (root, state) => {
   root.innerHTML = await App(state);
-  $(".carousel").slick({
-    dots: true,
-    fade: true,
-    arrows: false,
-    autoplay: true,
-    mobileFirst: true
-  });
 };
 
 // create content
@@ -55,12 +48,6 @@ const App = state => {
   return `
         <header><a href="#"><img width="100%" src="../assets/images/header.png"></a></header>
         ${Nav(rovers)}
-        <div class="carousel" style="margin: 1rem 0 0">
-          <div><img class="slick-img" src="//apod.nasa.gov/apod/image/2001/ngc602_ChandraHubbleSpitzer_960.jpg"></div>
-          <div><img class="slick-img" src="//apod.nasa.gov/apod/image/2001/NacreousPMHeden.jpg"></div>
-          <div><img class="slick-img" src="//apod.nasa.gov/apod/image/2001/ngc602_ChandraHubbleSpitzer_960.jpg"></div>
-          <div><img class="slick-img" src="//apod.nasa.gov/apod/image/2001/NacreousPMHeden.jpg"></div>
-        </div>
         <main>
           ${meta.size ? RoverList(meta, photos) : "Fetching Meta..."}
         </main>
@@ -82,7 +69,7 @@ const Nav = rovers => {
 
 const RoverList = (meta, photos) => {
   return meta
-    .map((m, ix) => {
+    .map(m => {
       const name = m.get("name");
       const landingDate = m.get("landing_date");
       const launchDate = m.get("launch_date");
@@ -97,12 +84,12 @@ const RoverList = (meta, photos) => {
               <article class="info">
                 <h2>${name}</h2>
                 <ul class="info-list">
-                  <li>Landing Date: ${landing_date}</li>
-                  <li>Launch Date: ${launch_date}</li>
+                  <li>Landing Date: ${landingDate}</li>
+                  <li>Launch Date: ${launchDate}</li>
                   <li>Status: ${status}</li>
-                  <li>Max Sol: ${max_sol}</li>
-                  <li>Max Date: ${max_date}</li>
-                  <li>Total Photos: ${total_photos}</li>
+                  <li>Max Sol: ${maxSol}</li>
+                  <li>Max Date: ${maxDate}</li>
+                  <li>Total Photos: ${totalPhotos}</li>
                 </ul>
               </article>
             </div>
@@ -113,22 +100,21 @@ const RoverList = (meta, photos) => {
              : "Fetching Photos..."
          }
         </section>
-        `
-    )
+        `;
+    })
     .join("");
 };
 
 const RoverGallery = photos => {
-  const renderRoverImage = imgSrc =>
-    `<div><img class="slick-img" src="${imgSrc}"></div>`;
+  const renderRoverImage = imgSrc => `<img src="${imgSrc}">`;
   return `
   <h1 style="text-align: center">Recent Photos</h1>
-  <div class="carousel" style="margin: 1rem 0 0">
-  ${photos
-    .map(photo => {
-      return renderRoverImage(photo.get("img_src"));
-    })
-    .join("")}
+  <div class="rover-images">
+    ${photos
+      .map(photo => {
+        return renderRoverImage(photo.get("img_src"));
+      })
+      .join("")}
   </div>
   `;
 };
